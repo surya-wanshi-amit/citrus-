@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "9c537933-ba52-45a5-8126-1829db29220b",
+		"name": "citrus-leaf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"amit\",\r\n    \"email\":\"amit@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"amit@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxLCJlbWFpbCI6InBhcm1pdEBnbWFpbC5jb20ifSwiaWF0IjoxNjYwOTM0MDQyLCJleHAiOjE2NjA5MzQ2NDJ9.QufPBE1M9ltkyNPedfRv62KfY9AiUxkgdUEGIKKqa38",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/user/Desktop/testapp.txt"
+						},
+						{
+							"key": "title\n",
+							"value": "\"citrus_task1\"",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "due_date",
+							"value": "\"19-8-22\"",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/newtask",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"newtask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJlbWFpbCI6ImFtaXRAZ21haWwuY29tIn0sImlhdCI6MTY2MDkzNTU3OSwiZXhwIjoxNjYwOTM2MTc5fQ.NmNjlvk0RnHFTNLeUZaCFD_hyoqMnTjyW5aMuxUjwcI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tasklist",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasklist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJlbWFpbCI6ImFtaXRAZ21haWwuY29tIn0sImlhdCI6MTY2MDkzNDkwMiwiZXhwIjoxNjYwOTM1NTAyfQ.LUJ6F-esTvZQtUIcks7R2UGTUbOfXDG6hu_ezUDukzo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"updated1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/task/update/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/task/remove/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"remove",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
